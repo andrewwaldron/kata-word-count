@@ -15,4 +15,9 @@ describe('word.count.kata', function() {
     expect(counts['word']).toEqual(1);
     expect(counts['up']).toEqual(1);
   });
+
+  it('can handle repeated words', function () {
+    var counts = subject.getWordCount('word word');
+    expect(counts['word']).toEqual(2);
+  });
 });
