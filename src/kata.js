@@ -5,8 +5,9 @@ var kata = (function() {
     var allWords = paragraph.split(' ');
 
     _.each(allWords, function (word) {
-      var isExistingWord = wordCounts.hasOwnProperty(word);
-      wordCounts[word] = isExistingWord ? wordCounts[word] + 1 : 1;
+      var lowerCaseWord = word.toLowerCase();
+      var isExistingWord = wordCounts.hasOwnProperty(lowerCaseWord);
+      wordCounts[lowerCaseWord] = isExistingWord ? wordCounts[lowerCaseWord] + 1 : 1;
     });
 
     return wordCounts;
