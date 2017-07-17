@@ -25,4 +25,10 @@ describe('word.count.kata', function() {
     var counts = subject.getWordCount('WORD word');
     expect(counts['word']).toEqual(2);
   });
+
+  it('ignores punctuation on a word', function() {
+    var counts = subject.getWordCount('word up!');
+    expect(counts['word']).toEqual(1);
+    expect(counts['up']).toEqual(1);
+  });
 });
