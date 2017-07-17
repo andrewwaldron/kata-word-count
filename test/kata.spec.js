@@ -31,4 +31,9 @@ describe('word.count.kata', function() {
     expect(counts['word']).toEqual(1);
     expect(counts['up']).toEqual(1);
   });
+
+  it('treats other whitespace characters as delimiters', function() {
+    var counts = subject.getWordCount('word\r\nword');
+    expect(counts['word']).toEqual(2);
+  });
 });
