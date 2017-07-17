@@ -20,4 +20,9 @@ describe('word.count.kata', function() {
     var counts = subject.getWordCount('word word');
     expect(counts['word']).toEqual(2);
   });
+
+  it("doesn't care about casing for the words", function() {
+    var counts = subject.getWordCount('WORD word');
+    expect(counts['word']).toEqual(2);
+  });
 });
