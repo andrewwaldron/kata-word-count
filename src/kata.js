@@ -2,7 +2,11 @@ var kata = (function() {
   function getWordCount(paragraph) {
     var wordCounts = {};
 
-    wordCounts[paragraph] = 1;
+    var allWords = paragraph.split(' ');
+
+    _.each(allWords, function (word) {
+      wordCounts[word] = 1;
+    });
 
     return wordCounts;
   }
