@@ -9,4 +9,10 @@ describe('word.count.kata', function() {
     var count = subject.getWordCount('word');
     expect(count['word']).toEqual(1);
   });
+
+  it('can handle two words', function() {
+    var counts = subject.getWordCount('word up');
+    expect(counts['word']).toEqual(1);
+    expect(counts['up']).toEqual(1);
+  });
 });
