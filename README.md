@@ -2,6 +2,7 @@
 
 Given a paragraph of text this program will determine the count of each word in the paragraph and will return the sorted word count. The following are other extrapolated rules:
 
+* Does not consider casing when comparing words. This could have issues when comparind proper nouns with other words, but that is a risk I'm willing to take
 * Punctuation will be ignored (although hyphenated words will not be)
 * ANY whitespace will be used to delimit words
 
