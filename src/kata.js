@@ -14,7 +14,9 @@ var kata = (function() {
   }
 
   function cleanUpTheWord(word) {
-    return word.toLowerCase();
+    var punctuation = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()]/, 'g');
+    var withoutPunctuation = word.replace(punctuation,'');
+    return withoutPunctuation.toLowerCase();
   }
 
   return {
