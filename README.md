@@ -1,4 +1,4 @@
-# word count kata
+# Word Count Kata
 
 Given a paragraph of text this program will determine the count of each word in the paragraph and will return the sorted word count. The following are other extrapolated rules:
 
