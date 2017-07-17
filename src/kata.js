@@ -2,7 +2,7 @@ var kata = (function() {
   function getWordCount(paragraph) {
     var wordCounts = {};
 
-    var allWords = paragraph.split(' ');
+    var allWords = paragraph.split(/\s/g);
 
     _.each(allWords, function (word) {
       var cleanedWord = cleanUpTheWord(word);
