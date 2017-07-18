@@ -53,13 +53,13 @@ describe('word.count.kata', function() {
   });
 
   it('ignores a word with a tick in it as well', function() {
-    var counts = subject.getWordCount('doesn\'t. make doesn\'t take');
+    var counts = subject.getWordCount('Doesn\'t. Make doesn\'t take!');
     expect(counts['doesn\'t']).toEqual(2);
-
   });
 
-  xit('solves a very complicated paragraph', function() {
-
+  it('solves a very complicated paragraph', function() {
+    var counts = subject.getWordCount(getComplicatedParagraph());
+    expect(counts['charlyne']).toEqual(1);
   });
 
   function getComplicatedParagraph() {
