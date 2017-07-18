@@ -42,6 +42,11 @@ describe('word.count.kata', function() {
     expect(Object.keys(counts).length).toEqual(0);
   });
 
+  it('handles correctly two whitespace separated numeric values', function() {
+    var counts = subject.getWordCount('123 45');
+    expect(Object.keys(counts).length).toEqual(0);
+  });
+
   xit('solves a very complicated paragraph', function() {
 
   });
