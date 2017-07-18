@@ -16,10 +16,15 @@ var kata = (function() {
   }
 
   function cleanUpTheWord(word) {
-    var punctuation = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()]/, 'g');
-    var withoutPunctuation = word.replace(punctuation, '');
-    var withoutNumericValues = withoutPunctuation.replace(/\d+/g, '');
-    return withoutNumericValues.toLowerCase();
+    var punctuationBeginning = new RegExp(/^[.,\/#!$%\^&\*;:{}=\-_`~()]/, 'g');
+    var punctuationEnd = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()]$/, 'g');
+
+    var withoutNumericValues = word.replace(/\d+/g, '');
+
+    var withoutPunctuationBeginning = withoutNumericValues.replace(punctuationBeginning, '');
+    var withoutPunctuationEnd = withoutPunctuationBeginning.replace(punctuationEnd, '');
+
+    return withoutPunctuationEnd.toLowerCase();
   }
 
   return {

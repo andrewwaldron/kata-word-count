@@ -47,6 +47,14 @@ describe('word.count.kata', function() {
     expect(Object.keys(counts).length).toEqual(0);
   });
 
+  it('ignores puncuation that is INSIDE of a word', function() {
+    var counts = subject.getWordCount('hyphenated-word');
+    expect(counts['hyphenated-word']).toEqual(1);
+  });
+
+  xit('ignores a word with a tick in it as well', function() {
+  });
+
   xit('solves a very complicated paragraph', function() {
 
   });
