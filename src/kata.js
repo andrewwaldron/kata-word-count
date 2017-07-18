@@ -6,6 +6,8 @@ var kata = (function() {
 
     _.each(allWords, function (word) {
       var cleanedWord = cleanUpTheWord(word);
+      if (!cleanedWord) return;
+
       var isExistingWord = wordCounts.hasOwnProperty(cleanedWord);
       wordCounts[cleanedWord] = isExistingWord ? wordCounts[cleanedWord] + 1 : 1;
     });
@@ -15,8 +17,9 @@ var kata = (function() {
 
   function cleanUpTheWord(word) {
     var punctuation = new RegExp(/[.,\/#!$%\^&\*;:{}=\-_`~()]/, 'g');
-    var withoutPunctuation = word.replace(punctuation,'');
-    return withoutPunctuation.toLowerCase();
+    var withoutPunctuation = word.replace(punctuation, '');
+    var withoutNumericValues = withoutPunctuation.replace(/\d+/g, '');
+    return withoutNumericValues.toLowerCase();
   }
 
   return {
