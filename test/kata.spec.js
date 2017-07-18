@@ -62,6 +62,16 @@ describe('word.count.kata', function() {
     expect(counts['charlyne']).toEqual(1);
   });
 
+  it('can also do some pretty super sorting using underscore, of course', function() {
+    var counts = subject.getWordCount(getComplicatedParagraph());
+
+    // expected result thanks to "https://wordcounttools.com/"
+    expect(subject.sortResults(counts[0])).toEqual({
+      word: 'text',
+      count: 6
+    });
+  });
+
   function getComplicatedParagraph() {
     return 'WASHINGTON Unable to rest their eyes on a colorful photograph or boldface heading that could be easily skimmed and forgotten about, Americans collectively recoiled Monday when confronted with a solid block of uninterrupted text.\r\n\r\n' +
       'Dumbfounded citizens from Maine to California gazed helplessly at the frightening chunk of print, unsure of what to do next. Without an illustration, chart, or embedded YouTube video to ease them in, millions were frozen in place, terrified by the sight of one long, unbroken string of English words.\r\n\r\n' +
