@@ -27,7 +27,16 @@ var kata = (function() {
     return withoutPunctuationEnd.toLowerCase();
   }
 
+  function sortResults(wordCounts) {
+    var niceLookingObjects = _.map(wordCounts, function (count, word) {
+      return { word: word, count: count };
+    });
+
+    return _.sortBy(niceLookingObjects, function (value) { return value.count; }).reverse();
+  }
+
   return {
-    getWordCount: getWordCount
+    getWordCount: getWordCount,
+    sortResults: sortResults
   };
 })();

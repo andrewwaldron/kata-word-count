@@ -63,13 +63,15 @@ describe('word.count.kata', function() {
   });
 
   it('can also do some pretty super sorting using underscore, of course', function() {
-    var counts = subject.getWordCount(getComplicatedParagraph());
-
-    // expected result thanks to "https://wordcounttools.com/"
-    expect(subject.sortResults(counts[0])).toEqual({
+    var sortedCounts = subject.sortResults(subject.getWordCount(getComplicatedParagraph()));
+    var expectedTextCount = {
       word: 'text',
       count: 6
-    });
+    };
+
+    // expected result thanks to "https://wordcounttools.com/"
+    // ...except apparantly that web site ignores the common words, such as 'and' and 'the'
+    expect(sortedCounts[9]).toEqual(expectedTextCount);
   });
 
   function getComplicatedParagraph() {
